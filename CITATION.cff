@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
+message: "If you use this software, please cite our paper."
+authors:
+  - family-names: Tong
+    given-names: Zhao
+  - family-names: Gong
+    given-names: Chunlin
+  - family-names: Zhang
+    given-names: Yiping
+  - family-names: Shi
+    given-names: Haichao
+  - family-names: Liu
+    given-names: Qiang
+  - family-names: Xu
+    given-names: Xingcheng
+  - family-names: Wu
+    given-names: Shu
+  - family-names: Zhang
+    given-names: Xiao-Yu
+repository-code: "https://github.com/cheslyn0712/CoT_is_Not_the_Chain_of_Truth"
+url: "https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/"
+preferred-citation:
+  type: article
+  title: "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
+  authors:
+    - family-names: Tong
+      given-names: Zhao
+    - family-names: Gong
+      given-names: Chunlin
+    - family-names: Zhang
+      given-names: Yiping
+    - family-names: Shi
+      given-names: Haichao
+    - family-names: Liu
+      given-names: Qiang
+    - family-names: Xu
+      given-names: Xingcheng
+    - family-names: Wu
+      given-names: Shu
+    - family-names: Zhang
+      given-names: Xiao-Yu
+  year: 2026
+  doi: 10.48550/arXiv.2602.04856
+  url: "https://arxiv.org/abs/2602.04856"

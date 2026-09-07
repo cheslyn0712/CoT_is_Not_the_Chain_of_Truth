@@ -1,45 +1,71 @@
+<div align="center">
+
 # CoT is Not the Chain of Truth
 
-Code repository for "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
+**An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation**
 
-## Pipeline Overview
+<a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer">
+  <img src="assets/icml-logo.png" alt="ICML — International Conference on Machine Learning" height="44">
+  <br>
+  <strong>ICML 2026</strong>
+</a>
 
-The pipeline consists of three stages:
+<br><br>
 
-1. **Generation** (`CoT_Generation/`): Generates CoT reasoning data from seed news articles using different prompt strategies
-2. **Annotation** (`CoT_Annotation/`): Labels CoT toxicity and samples data for human verification
-3. **Analysis** (`CoT_Analysis/`): Performs layer-level and attention head-level analysis to identify safety-critical components
+[![arXiv](https://img.shields.io/badge/arXiv-2602.04856-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2602.04856)
+[![Project Page](https://img.shields.io/badge/Project-Page-102033?style=for-the-badge&logo=googlechrome&logoColor=white)](https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/)
+[![PDF](https://img.shields.io/badge/Paper-PDF-243447?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://arxiv.org/pdf/2602.04856)
+[![Code](https://img.shields.io/badge/Code-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/cheslyn0712/CoT_is_Not_the_Chain_of_Truth)
 
-### Data Flow
+**Zhao Tong**<sup>*</sup> · **Chunlin Gong**<sup>*</sup> · **Yiping Zhang** · **Haichao Shi** · **Qiang Liu** · **Xingcheng Xu**<sup>†</sup> · **Shu Wu** · **Xiao-Yu Zhang**<sup>†</sup>
+
+<sup>*</sup>Equal contribution · <sup>†</sup>Corresponding author
+
+Institute of Information Engineering, CAS · University of Chinese Academy of Sciences · University of Minnesota · Shanghai AI Laboratory · Institute of Automation, CAS
+
+</div>
+
+---
+
+## Overview
+
+Reasoning LLMs can harbor unsafe planning inside Chain-of-Thought (CoT) traces **even when the final answer refuses**. We localize these failures to mid-depth layers and safety-critical attention heads via Jacobian spectral metrics (B1–B3).
+
+**Generalization:** We show the same routing pattern extends **beyond fake-news generation** to **HarmBench** jailbreak tasks on Flan-UL2 and DeepSeek-R1-70B. Critical-head fine-tuning improves CoT safety on both News (+67.1 avg.) and HarmBench (+55.0 avg.) with only 0.64%–1.95% parameter updates.
+
+| | |
+|---|---|
+| **ICML 2026 Poster** | https://icml.cc/virtual/2026/poster/61042 |
+| **Project Page** | https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/ |
+| **Paper (PDF)** | https://arxiv.org/pdf/2602.04856 |
+| **arXiv** | https://arxiv.org/abs/2602.04856 |
+
+## Pipeline
+
+Three stages: **CoT_Generation** → **CoT_Annotation** → **CoT_Analysis**
 
 ```
-Seed (Real_News.json) 
+Seed (Real_News.json)
   → Raw ({model}/{prompt_type}/{style}/news.json)
     → Processed ({model}/{prompt_type}/{style}/news.json)
       → HumanCheck ({model}/{prompt_type}/{style}/news.json)
 ```
 
-### Running the Pipeline
+### Quick Start
 
-1. **Generation**: Fill `CoT_Generation/prompts_config.json` with prompts, then run:
-   ```bash
-   cd CoT_Generation
-   python Generation.py
-   ```
+```bash
+pip install -r requirements.txt
 
-2. **Annotation**: Configure `CoT_Annotation/label.py` and run:
-   ```bash
-   cd CoT_Annotation
-   python label.py      # Label toxicity (processes all configurations)
-   python verify.py     # Sample one random configuration for human check
-   ```
+# 1. Generation
+cd CoT_Generation && python Generation.py
 
-3. **Analysis**: Run layer and head analysis:
-   ```bash
-   cd CoT_Analysis
-   python Layer.py --data_path ... --model_path ... --save_dir ...
-   python Head.py --jsons ... --out_root ...
-   ```
+# 2. Annotation
+cd CoT_Annotation && python label.py && python verify.py
+
+# 3. Analysis
+cd CoT_Analysis && python Layer.py --data_path ... --model_path ... --save_dir ...
+cd CoT_Analysis && python Head.py --jsons ... --out_root ...
+```
 
 ## Directory Structure
 
@@ -47,54 +73,27 @@ Seed (Real_News.json)
 CoT_is_Not_the_Chain_of_Truth/
 ├── CoT_Generation/     # Stage 1: Generate CoT data
 ├── CoT_Annotation/     # Stage 2: Label and verify
-├── CoT_Analysis/       # Stage 3: Analyze attention mechanisms
-├── Data/               # All data (Seed → Raw → Processed → HumanCheck)
+├── CoT_Analysis/       # Stage 3: Layer & head analysis
+├── Data/               # Seed → Raw → Processed → HumanCheck
 └── LLM/                # Language models (download separately)
-    ├── Qwen3-4B-Thinking-2507/
-    ├── Llama-3-8B-Instruct/
-    └── Qwen3-VL-8B-Thinking/
 ```
 
-## Documentation
+See [Data/README.md](Data/README.md) and [LLM/README.md](LLM/README.md) for data format and model download instructions.
 
-- **[Data/README.md](Data/README.md)**: Data format specifications
-- **[LLM/README.md](LLM/README.md)**: Model download instructions
+## Citation
 
-## Installation
+If you find this work useful, please cite:
 
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
+```bibtex
+@misc{tong2026cotchaintruthempirical,
+      title={CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation}, 
+      author={Zhao Tong and Chunlin Gong and Yiping Zhang and Haichao Shi and Qiang Liu and Xingcheng Xu and Shu Wu and Xiao-Yu Zhang},
+      year={2026},
+      eprint={2602.04856},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.04856}, 
+}
 ```
 
-## Requirements
-
-See `requirements.txt` for detailed package versions. Main dependencies:
-- Python 3.8+
-- PyTorch, Transformers
-- NumPy, Matplotlib
-- ModelScope (for Qwen3-VL models)
-
-## Setup
-
-### 1. Download Models
-
-Download the required models to `LLM/` directory. See [LLM/README.md](LLM/README.md) for download instructions.
-
-### 2. Prepare Data
-
-Place `Data/Seed/Real_News.json` with seed news articles. Format: `[{"user_input": "...", "toxicity": 0}, ...]`
-
-### 3. Configure Prompts
-
-Fill in `CoT_Generation/prompts_config.json` with your prompt templates.
-
-## Configuration
-
-All scripts use relative paths by default. Configure:
-- **Model paths**: Set in each script (default: `LLM/{model_name}`)
-- **GPU**: Set `GPU_IDS` in each script (e.g., `"0,1"` or `""` for auto)
-- **Data paths**: All relative to project root
-
-See individual README files in each stage directory for detailed configuration instructions.
+**Project page:** https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/
