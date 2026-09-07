@@ -4,11 +4,13 @@
 
 **An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation**
 
-<a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer">
-  <img src="assets/icml-logo-white-bg.png" alt="ICML 2026" height="52">
-</a>
-
-<br><br>
+<p>
+  <a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer">
+    <img src="assets/icml-navbar-logo.svg" alt="ICML" height="28" align="middle">
+  </a>
+  &nbsp;
+  <a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer"><strong>ICML 2026</strong></a>
+</p>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.04856-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2602.04856)
 [![Project Page](https://img.shields.io/badge/Project-Page-102033?style=for-the-badge&logo=googlechrome&logoColor=white)](https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/)
@@ -24,9 +26,7 @@
   <strong>Shu Wu</strong> ·
   <strong>Xiao-Yu Zhang</strong><sup>†</sup>
 </p>
-
 <p><sup>*</sup>Equal contribution: Zhao Tong, Chunlin Gong · <sup>†</sup>Corresponding author: Xingcheng Xu, Xiao-Yu Zhang</p>
-
 <p>Institute of Information Engineering, CAS · University of Chinese Academy of Sciences · University of Minnesota · Shanghai AI Laboratory · Institute of Automation, CAS</p>
 
 </div>
@@ -94,4 +94,3 @@ If you find this work useful, please cite:
       url={https://arxiv.org/abs/2602.04856}, 
 },
 ```
-
