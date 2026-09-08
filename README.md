@@ -6,10 +6,8 @@
 
 <p>
   <a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer">
-    <img src="assets/icml-navbar-logo.svg" alt="ICML" height="28" align="middle">
+    <img src="assets/icml-navbar-logo.svg" alt="ICML" height="28" align="middle"><strong> ICML 2026</strong>
   </a>
-  &nbsp;
-  <a href="https://icml.cc/virtual/2026/poster/61042" target="_blank" rel="noopener noreferrer"><strong>ICML 2026</strong></a>
 </p>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.04856-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2602.04856)
