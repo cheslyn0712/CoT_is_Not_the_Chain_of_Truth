@@ -19,7 +19,7 @@ authors:
   - family-names: Zhang
     given-names: Xiao-Yu
 repository-code: "https://github.com/cheslyn0712/CoT_is_Not_the_Chain_of_Truth"
-url: "https://cheslyn0712.github.io/CoT_is_Not_the_Chain_of_Truth-website/projects/cot-chain-of-truth/"
+url: "https://cheslyn0712.github.io/projects/cot-chain-of-truth/"
 preferred-citation:
   type: article
   title: "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
