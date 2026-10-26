@@ -11,8 +11,8 @@
 </p>
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.04856-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2602.04856)
-[![Project Page](https://img.shields.io/badge/Project-Page-102033?style=for-the-badge&logo=googlechrome&logoColor=white)](https://cheslyn0712.github.io/projects/cot-chain-of-truth/)
-[![PDF](https://img.shields.io/badge/Paper-PDF-243447?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://arxiv.org/pdf/2602.04856)
+[![Project Page](https://img.shields.io/badge/Project-Page-102033?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chunlingong.me/projects/cot-chain-of-truth/)
+[![PDF](https://img.shields.io/badge/Paper-PDF-243447?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://raw.githubusercontent.com/mlresearch/v306/main/assets/tong26e/tong26e.pdf)
 
 <p>
   <strong>Zhao Tong</strong><sup>*</sup> ·
@@ -79,16 +79,26 @@ See [Data/README.md](Data/README.md) and [LLM/README.md](LLM/README.md) for data
 
 ## Citation
 
-If you find this work useful, please cite:
+ICML 2026. Preprint: [arXiv:2602.04856](https://arxiv.org/abs/2602.04856).
 
 ```bibtex
-@misc{tong2026cotchaintruthempirical,
-      title={CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation}, 
-      author={Zhao Tong and Chunlin Gong and Yiping Zhang and Haichao Shi and Qiang Liu and Xingcheng Xu and Shu Wu and Xiao-Yu Zhang},
-      year={2026},
-      eprint={2602.04856},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2602.04856}, 
-},
+@InProceedings{pmlr-v306-tong26e,
+  title = 	 {{C}o{T} is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning {LLM}s for Fake News Generation},
+  author =       {Tong, Zhao and Gong, Chunlin and Zhang, Yiping and Shi, Haichao and Liu, Qiang and Xu, Xingcheng and Wu, Shu and Zhang, Xiao-Yu},
+  booktitle = 	 {Proceedings of the 43rd International Conference on Machine Learning},
+  pages = 	 {121562--121589},
+  year = 	 {2026},
+  editor = 	 {Zhang, Tong and Dudik, Miroslav and Jaggi, Martin and Agarwal, Alekh and Li, Sharon and Schuurmans, Dale and Zhu, Jerry and Berkenkamp, Felix and Dong, Hanze and Bietti, Alberto},
+  volume = 	 {306},
+  series = 	 {Proceedings of Machine Learning Research},
+  month = 	 {06--11 Jul},
+  publisher =    {PMLR},
+  pdf = 	 {https://raw.githubusercontent.com/mlresearch/v306/main/assets/tong26e/tong26e.pdf},
+  url = 	 {https://proceedings.mlr.press/v306/tong26e.html},
+  abstract = 	 {From generating headlines to fabricating news, the Large Language Models (LLMs) are typically assessed by their final outputs, under the safety assumption that a refusal response signifies safe reasoning throughout the entire process. Challenging this assumption, our study reveals that during fake news generation, even when a model rejects a harmful request, its Chain-of-Thought (CoT) reasoning may still internally contain and propagate unsafe narratives. To analyze this phenomenon, we introduce a unified safety-analysis framework that systematically deconstructs CoT generation across model layers and evaluates the role of individual attention heads through Jacobian-based spectral metrics. Within this framework, we introduce three interpretable measures: stability, geometry, and energy to quantify how specific attention heads respond or embed deceptive reasoning patterns. Extensive experiments on multiple reasoning-oriented LLMs show that the generation risk rise significantly when the thinking mode is activated, where the critical routing decisions concentrated in only a few contiguous mid-depth layers. By precisely identifying the attention heads responsible for this divergence, our work challenges the assumption that refusal implies safety and provides a new understanding perspective for mitigating latent reasoning risks.}
+}
 ```
+
+## Pipeline
+
+Generation, trace labeling, and layer-to-head analysis are in `CoT_Generation/`, `CoT_Annotation/`, and `CoT_Analysis/`. The analysis localizes unsafe routing and supports the critical-head updates reported in the paper.

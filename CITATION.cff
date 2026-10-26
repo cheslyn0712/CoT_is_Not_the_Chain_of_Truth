@@ -1,7 +1,30 @@
 cff-version: 1.2.0
-title: "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
-message: "If you use this software, please cite our paper."
+message: If you use this code, please cite the ICML 2026 paper.
+type: software
+title: CoT is Not the Chain of Truth code
 authors:
+- family-names: Tong
+  given-names: Zhao
+- family-names: Gong
+  given-names: Chunlin
+- family-names: Zhang
+  given-names: Yiping
+- family-names: Shi
+  given-names: Haichao
+- family-names: Liu
+  given-names: Qiang
+- family-names: Xu
+  given-names: Xingcheng
+- family-names: Wu
+  given-names: Shu
+- family-names: Zhang
+  given-names: Xiao-Yu
+repository-code: https://github.com/cheslyn0712/CoT_is_Not_the_Chain_of_Truth
+url: https://chunlingong.me/projects/cot-chain-of-truth/
+preferred-citation:
+  type: conference-paper
+  title: 'CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation'
+  authors:
   - family-names: Tong
     given-names: Zhao
   - family-names: Gong
@@ -18,28 +41,47 @@ authors:
     given-names: Shu
   - family-names: Zhang
     given-names: Xiao-Yu
-repository-code: "https://github.com/cheslyn0712/CoT_is_Not_the_Chain_of_Truth"
-url: "https://cheslyn0712.github.io/projects/cot-chain-of-truth/"
-preferred-citation:
-  type: article
-  title: "CoT is Not the Chain of Truth: An Empirical Internal Analysis of Reasoning LLMs for Fake News Generation"
-  authors:
-    - family-names: Tong
-      given-names: Zhao
-    - family-names: Gong
-      given-names: Chunlin
-    - family-names: Zhang
-      given-names: Yiping
-    - family-names: Shi
-      given-names: Haichao
-    - family-names: Liu
-      given-names: Qiang
-    - family-names: Xu
-      given-names: Xingcheng
-    - family-names: Wu
-      given-names: Shu
-    - family-names: Zhang
-      given-names: Xiao-Yu
+  editors:
+  - family-names: Zhang
+    given-names: Tong
+  - family-names: Dudik
+    given-names: Miroslav
+  - family-names: Jaggi
+    given-names: Martin
+  - family-names: Agarwal
+    given-names: Alekh
+  - family-names: Li
+    given-names: Sharon
+  - family-names: Schuurmans
+    given-names: Dale
+  - family-names: Zhu
+    given-names: Jerry
+  - family-names: Berkenkamp
+    given-names: Felix
+  - family-names: Dong
+    given-names: Hanze
+  - family-names: Bietti
+    given-names: Alberto
   year: 2026
-  doi: 10.48550/arXiv.2602.04856
-  url: "https://arxiv.org/abs/2602.04856"
+  month: 7
+  collection-title: Proceedings of the 43rd International Conference on Machine Learning
+  conference:
+    name: The 43rd International Conference on Machine Learning
+    date-start: '2026-07-06'
+    date-end: '2026-07-11'
+  volume: 306
+  publisher:
+    name: PMLR
+  start: 121562
+  end: 121589
+  url: https://proceedings.mlr.press/v306/tong26e.html
+  identifiers:
+  - type: other
+    value: pmlr-v306-tong26e
+    description: PMLR citation key
+  - type: url
+    value: https://raw.githubusercontent.com/mlresearch/v306/main/assets/tong26e/tong26e.pdf
+    description: PMLR PDF
+  - type: other
+    value: '2602.04856'
+    description: arXiv preprint identifier
