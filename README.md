@@ -10,6 +10,8 @@
   </a>
 </p>
 
+**Paper:** [ICML 2026 · PMLR](https://proceedings.mlr.press/v306/tong26e.html)
+
 [![arXiv](https://img.shields.io/badge/arXiv-2602.04856-b31b1b?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2602.04856)
 [![Project Page](https://img.shields.io/badge/Project-Page-102033?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chunlingong.me/projects/cot-chain-of-truth/)
 [![PDF](https://img.shields.io/badge/Paper-PDF-243447?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://raw.githubusercontent.com/mlresearch/v306/main/assets/tong26e/tong26e.pdf)
@@ -33,11 +35,29 @@
 
 ## Overview
 
-Reasoning LLMs can harbor unsafe planning inside Chain-of-Thought (CoT) traces **even when the final answer refuses**. We localize these failures to mid-depth layers and safety-critical attention heads via Jacobian spectral metrics (B1–B3).
+We study unsafe content in generated reasoning traces, localize safety-related layers and attention heads with Jacobian spectral analysis, and evaluate targeted safety interventions on fake-news generation and HarmBench.
 
-**Generalization:** We show the same routing pattern extends **beyond fake-news generation** to **HarmBench** jailbreak tasks on Flan-UL2 and DeepSeek-R1-70B. Critical-head fine-tuning improves CoT safety on both News (+67.1 avg.) and HarmBench (+55.0 avg.) with only 0.64%–1.95% parameter updates.
+Reasoning-model safety connects the content of generated reasoning traces with the internal computations that produce them. CoT is Not the Chain of Truth studies unsafe reasoning traces whose final answers are refusals and develops a layer-to-head workflow for analyzing this behavior.
+
+The study connects process-level safety evaluation, mechanistic interpretability, and targeted safety intervention. It combines trace annotation with Jacobian-based measurements of stability, geometry, and spectral energy, and evaluates the identified components through perturbation experiments and targeted updates.
+
+Research note: [Reasoning-Trace Safety: Evaluation, Mechanisms, and Intervention](https://chunlingong.me/research/reasoning-trace-safety/)
+
+## Code and resources
+
+| Component | Entry point |
+|---|---|
+| Trace generation | [CoT_Generation/Generation.py](CoT_Generation/Generation.py) |
+| Trace annotation | [CoT_Annotation/label.py](CoT_Annotation/label.py) |
+| Annotation review | [CoT_Annotation/verify.py](CoT_Annotation/verify.py) |
+| Layer analysis | [CoT_Analysis/Layer.py](CoT_Analysis/Layer.py) |
+| Attention-head analysis | [CoT_Analysis/Head.py](CoT_Analysis/Head.py) |
+| Data format | [Data/README.md](Data/README.md) |
+| Model setup | [LLM/README.md](LLM/README.md) |
 
 ## Pipeline
+
+Generation, trace labeling, and layer-to-head analysis are in `CoT_Generation/`, `CoT_Annotation/`, and `CoT_Analysis/`. The analysis localizes unsafe routing and supports the critical-head updates reported in the paper.
 
 Three stages: **CoT_Generation** → **CoT_Annotation** → **CoT_Analysis**
 
@@ -98,7 +118,3 @@ ICML 2026. Preprint: [arXiv:2602.04856](https://arxiv.org/abs/2602.04856).
   abstract = 	 {From generating headlines to fabricating news, the Large Language Models (LLMs) are typically assessed by their final outputs, under the safety assumption that a refusal response signifies safe reasoning throughout the entire process. Challenging this assumption, our study reveals that during fake news generation, even when a model rejects a harmful request, its Chain-of-Thought (CoT) reasoning may still internally contain and propagate unsafe narratives. To analyze this phenomenon, we introduce a unified safety-analysis framework that systematically deconstructs CoT generation across model layers and evaluates the role of individual attention heads through Jacobian-based spectral metrics. Within this framework, we introduce three interpretable measures: stability, geometry, and energy to quantify how specific attention heads respond or embed deceptive reasoning patterns. Extensive experiments on multiple reasoning-oriented LLMs show that the generation risk rise significantly when the thinking mode is activated, where the critical routing decisions concentrated in only a few contiguous mid-depth layers. By precisely identifying the attention heads responsible for this divergence, our work challenges the assumption that refusal implies safety and provides a new understanding perspective for mitigating latent reasoning risks.}
 }
 ```
-
-## Pipeline
-
-Generation, trace labeling, and layer-to-head analysis are in `CoT_Generation/`, `CoT_Annotation/`, and `CoT_Analysis/`. The analysis localizes unsafe routing and supports the critical-head updates reported in the paper.
