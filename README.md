@@ -35,13 +35,13 @@
 
 ## Overview
 
-We study unsafe content in generated reasoning traces, localize safety-related layers and attention heads with Jacobian spectral analysis, and evaluate targeted safety interventions on fake-news generation and HarmBench.
+We study chain-of-thought (CoT) safety in reasoning LLMs, connect unsafe reasoning traces and final-answer refusal to safety-related layers and attention heads, and evaluate targeted interventions on fake-news generation and HarmBench.
 
-Reasoning-model safety connects the content of generated reasoning traces with the internal computations that produce them. CoT is Not the Chain of Truth studies unsafe reasoning traces whose final answers are refusals and develops a layer-to-head workflow for analyzing this behavior.
+Chain-of-thought safety asks how harmful content develops during a reasoning model's generation process. CoT is Not the Chain of Truth examines cases where the generated reasoning trace contains unsafe content and the final answer refuses the request. Trace annotations and final-response labels make this relationship observable.
 
-The study connects process-level safety evaluation, mechanistic interpretability, and targeted safety intervention. It combines trace annotation with Jacobian-based measurements of stability, geometry, and spectral energy, and evaluates the identified components through perturbation experiments and targeted updates.
+The paper connects this process-level safety question to mechanistic interpretability through layer localization, attention-head analysis, and Jacobian spectral measurements. Perturbation experiments examine the behavioral role of the identified components, and targeted parameter updates are evaluated on fake-news generation and HarmBench.
 
-Research note: [Reasoning-Trace Safety: Evaluation, Mechanisms, and Intervention](https://chunlingong.me/research/reasoning-trace-safety/)
+Research note: [Chain-of-Thought Safety and Mechanistic Interpretability](https://chunlingong.me/research/reasoning-trace-safety/)
 
 ## Code and resources
 
