@@ -35,13 +35,13 @@
 
 ## Overview
 
-We study chain-of-thought (CoT) safety in reasoning LLMs, connect unsafe reasoning traces and final-answer refusal to safety-related layers and attention heads, and evaluate targeted interventions on fake-news generation and HarmBench.
+We connect chain-of-thought safety, mechanistic interpretability, and targeted attention-head fine-tuning for AI safety in reasoning LLMs. Across five models, updating 0.64%-1.95% of parameters improves CoT safety by 67.1 percentage points on News and 55.0 on HarmBench on average.
 
-Chain-of-thought safety asks how harmful content develops during a reasoning model's generation process. CoT is Not the Chain of Truth examines cases where the generated reasoning trace contains unsafe content and the final answer refuses the request. Trace annotations and final-response labels make this relationship observable.
+AI safety evaluation for reasoning models needs to account for harmful content generated before a final refusal. In fake-news generation, a reasoning trace can supply misleading narratives and reusable fabrication strategies even when the final answer refuses. CoT is Not the Chain of Truth jointly evaluates the generated trace and final response to make this process-level risk observable.
 
-The paper connects this process-level safety question to mechanistic interpretability through layer localization, attention-head analysis, and Jacobian spectral measurements. Perturbation experiments examine the behavioral role of the identified components, and targeted parameter updates are evaluated on fake-news generation and HarmBench.
+We connect this chain-of-thought safety problem to AI interpretability through a layer-to-attention-head analysis of routing operators. Jacobian spectral metrics characterize safety-related routing structures, controlled perturbations test the safety relevance of the identified components, and critical-head fine-tuning evaluates these components as targets for improving CoT safety on fake-news generation and HarmBench.
 
-Research note: [Chain-of-Thought Safety and Mechanistic Interpretability](https://chunlingong.me/research/reasoning-trace-safety/)
+Research note: [AI Safety and Mechanistic Interpretability of Chain-of-Thought Reasoning](https://chunlingong.me/research/reasoning-trace-safety/)
 
 ## Code and resources
 
